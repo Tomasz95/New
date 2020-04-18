@@ -46,27 +46,23 @@ class BMIState extends State<BmiCalculator> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    //throw UnimplementedError();   // czemu to wygenerowało mi sie automatycznie
+
 
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
         title: new Text('BMI Kalkulator'),
       ),
-      body: new ListView(
+      body: new SingleChildScrollView(
         padding: const EdgeInsets.all(3.5),
-        children: <Widget>[
-          new Image.asset(
-            "images/a.jpg",
-            height: 120.0,
-            width: 150.0,
-          ),
+        child:
           new Container(
             color: Colors.grey,
             padding: const EdgeInsets.all(5.0),
             child: new Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+
                 Switch(
                   value: change,
                   onChanged: (bool value) {
@@ -115,32 +111,30 @@ class BMIState extends State<BmiCalculator> {
                   ),
                   color: Colors.green,
                   textColor: Colors.white,
-                )
-              ],
-            ),
-          ),
-          new Padding(padding: const EdgeInsets.all(5.5)),
-          new Container(
-            alignment: Alignment.center,
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Text(
-                  _calcResult != null ? '$_calcResult' : '',
-                  style: new TextStyle(
-                    color: Colors.red,
-                    fontSize: 45,
-                    fontWeight: FontWeight.w800,
-                  ),
                 ),
-                new Text(
-                  _calcResult != null ? '$_result' : '',
-                  style: new TextStyle(fontSize: 45),
+                new Padding(padding: const EdgeInsets.all(5.5)),
+                new Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Text(
+                      _calcResult != null ? '$_calcResult' : '',
+                      style: new TextStyle(
+                        color: Colors.red,
+                        fontSize: 45,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    new Text(
+                      _calcResult != null ? '$_result' : '',
+                      style: new TextStyle(fontSize: 45),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-        ],
+
+
       ),
     );
   }
